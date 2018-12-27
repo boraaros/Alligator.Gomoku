@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Alligator.Gomoku
 {
@@ -35,7 +33,7 @@ namespace Alligator.Gomoku
         {
             foreach (var ply in history)
             {
-                Do(ply);
+                Take(ply);
             }
         }
 
@@ -58,7 +56,7 @@ namespace Alligator.Gomoku
             return patternManager.Evaluate(next);
         }
 
-        public void Do(Ply ply)
+        public void Take(Ply ply)
         {
             if (ply == null)
             {
@@ -150,7 +148,7 @@ namespace Alligator.Gomoku
             }  
         }
 
-        public void Undo()
+        public void TakeBack()
         {
             if (history.Count == 0)
             {
@@ -369,5 +367,9 @@ namespace Alligator.Gomoku
         public bool IsQuiet => true;
 
         public IList<Ply> History => history;
+
+        public int Value => Score();
+
+        public Stone Winner => winner;
     }
 }
