@@ -19,5 +19,7 @@ namespace Alligator.Gomoku
         int StoneCount { get; }
 
         IList<Ply> History { get; }
+
+        Stone Winner { get; }
     }
 }
